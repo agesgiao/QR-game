@@ -1,22 +1,105 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-	
-	<meta charset="utf-8">
-	<title>clover base</title>
-	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワード保護ページ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #passwordForm, #protectedContent {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #protectedContent img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function checkPassword() {
+            const inputPassword = document.getElementById('passwordInput').value;
+            const correctPasswords = ['ぺんぎん', 'ペンギン','penguin']; // ここに正しいパスワードのリストを設定
+
+            if (correctPasswords.includes(inputPassword)) {
+                document.getElementById('protectedContent').style.display = 'block';
+                document.getElementById('passwordForm').style.display = 'none';
+            } else {
+                alert('パスワードが違います');
+            }
+        }
+    </script>
 </head>
-
-	
 <body>
-	
-	 <header class="page-header wrapper">
-                <h1><a href="index.html"></a></h1>
-                
-            </header>
 
-    <!-- 画像を追加 -->
-    <img src="image/sikaku hint3.png" alt="代替テキスト">
+    <div id="passwordForm">
+        <h1>パスワードを入力してください</h1>
+        <input type="password" id="passwordInput" placeholder="パスワード">
+        <button onclick="checkPassword()">送信</button>
+    </div>
+
+    <div id="protectedContent" style="display: none;">
+        <img src="image/sikaku hint3.png" alt="保護された画像">
+		 <audio id="successSound" src="image/sikaku_reverse.mp3"></audio>
+    </div>
 	
+	<script>
+        // 画像要素と音声要素を取得
+        const image = document.getElementById('clickable-image');
+        const audio = document.getElementById('audio-player');
+
+        // 画像がクリックされたときに音声を再生
+        image.addEventListener('click', () => {
+            audio.play();
+        });
+    </script>
+
 </body>
 </html>
