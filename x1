@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<title>x hint1</title>
+	
+</head>
+
+	
+<body>
+	
+	 <header class="page-header wrapper">
+                <h1><a href="index.html"></a></h1>
+                
+            </header>
+
+    <!-- 画像を追加 -->
+    <img src="image/x_hint.png" alt="代替テキスト">
+	
+</body>
+</html>
